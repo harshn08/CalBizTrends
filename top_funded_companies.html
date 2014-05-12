@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Home</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href = "css/bootstrap.min.css" rel = "stylesheet">
+                <link href = "css/styles.css" rel = "stylesheet">
+                <link href="css/dashboard.css" rel="stylesheet">
+         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+                
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+               <script type="text/javascript">
+               $(document).ready(function() {
+           var options = {
+                chart: {
+                    renderTo: 'column_graph1',
+                    type: 'column',
+                     options3d: {
+                enabled: true,
+                alpha: 20,
+                beta: 20,
+                viewDistance: 125,
+                depth: 25
+            },
+            marginTop: 80,
+            marginRight: 40
+        },
+
+        title: {
+            text: 'Top 5 Companies with Highest Investments in California'
+        },
+
+        xAxis: {
+            categories: []
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+                text: 'Investment(in Billions)'
+            }
+        },
+
+       tooltip: {
+                    formatter: function() {
+                            return '<b>'+ this.series.name +'</b><br/>'+
+                            this.x +': '+ this.y;
+                    }
+                },
+
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                depth: 40
+            }
+        },
+
+        series: [
+        //    name: 'hardware',
+          //  data: []
+            //stack: 'male'
+        ]
+      }
+      $.getJSON("top_funded_companies1.php", function(json) {
+                options.xAxis.categories = json[0]['data'];
+                options.series[0] = json[1];
+               //options.series[1] = json[2];
+                //options.series[2] = json[3];
+                 //options.series[3] = json[4];
+               // chart = new Highcharts.Chart(options);
+            
+      chart = new Highcharts.Chart(options);
+      });
+    });
+
+
+
+
+    </script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-3d.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+        </head>
+        <body>
+ 
+                <div class = "navbar navbar-inverse navbar-fixed-top">
+                        <div class = "container-fluid">
+                        
+                               
+                                <a href = "#" class = "navbar-brand">California Business Trends</a>
+                               
+                                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                </button>
+                               
+                                <div class = "collapse navbar-collapse navHeaderCollapse">
+                               
+                                        <ul class = "nav navbar-nav navbar-right">
+                                       
+                                                <li><a href = "#">Home</a></li>
+                                                <li class = "dropdown">
+                                                       
+                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media <b class = "caret"></b></a>
+                                                        <ul class = "dropdown-menu">
+                                                                <li><a href = "https://twitter.com/calbiztrends">Twitter</a></li>
+                                                                <li><a href = "https://www.facebook.com/cabusinesstrends">Facebook</a></li>
+                                                        </ul>
+                                               
+                                                </li>
+                                                <li><a href = "#">About</a></li>
+                                                <li><a href = "#">Contact</a></li>
+
+                                       
+                                        </ul>
+                               
+                                </div>
+                               
+                        </div>
+                </div>
+        
+         
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        
+          <ul class="nav nav-sidebar">          
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="investor_trend.html">Investor Trends</a></li>
+            <li><a href="number_companies.html">Companies vs Categories</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+             <li><a href="top_acquisition.html">Top Acquisitions</a></li>
+            <li><a href="top_acquirer.html">Top Acquirers</a></li>
+            <li><a href="acquisition.html"> Acquisitions vs Acquirers </a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+             <li><a href="state.html">Statewise Company Data</a></li>
+            <li><a href="region_wise.html">Regionwise Company Data</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+             <li><a href="investment.html">Top Investments vs </br>Top Categories</a></li>
+            <li><a href="investor_Ex.html">Rounds of Investments</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="top_funded_companies.html">Top Funded Company</a></li>
+             <li><a href="funding.html">Funding vs Category</a></li>
+            <li><a href="global_stat1.html">Recent Funding Trends</a></li>
+          </ul>
+          
+      </div>
+     
+     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+     <div class = "container-fluid" id = "content-area">
+     <div class="panel panel-primary">
+
+    <div class="panel-heading" id="panel-heading"><h4 align="center"> Companies with the Highest Funding History</h4></div>
+    <div class="panel-body">
+          <em><strong>This chart shows some of the companies that have recieved the highest amount of funding.</strong></em>
+        </div>
+
+      <div id="column_graph1">
+        
+      </div>
+
+    
+         <!--   <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>-->
+         </div>
+         </div>
+         </div>
+     </div>
+                <div class = "navbar navbar-default navbar-fixed-bottom">
+               
+                        <div class = "container">
+                            <a href = "http://youtube.com/codersguide" class = "navbar-btn btn-primary btn pull-right">Like us on Facebook</a>
+                                
+                        </div>
+               
+                </div>
+ 
+                <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script src = "js/bootstrap.js"></script>
+               
+        </body>
+</html>
