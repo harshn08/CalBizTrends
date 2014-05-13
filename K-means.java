@@ -106,7 +106,7 @@ public class KMeans
   // This program will print out the genes in each cluster, and will also create
   // a jpeg file showing the expression data of each cluster. The jpeg files
   // will be named "<output_filename><clusterNumber>.jpg".
-  public static void main( String[] astrArgs ) 
+  public static void main( String[] astrArgs)
   {
     // TODO
     // Add code here to make a new KMeans object (which will load the data).
