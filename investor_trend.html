@@ -16,16 +16,14 @@
 			//var a =1;
                 chart: {
                     renderTo: 'column_graph',
-                    //type: 'column',
-                    //marginRight: 130,
-                    //marginBottom: 150
+                 
                 },
                 title: {
-                    text: 'Series A Investors - Latest Trend Analysis',
+                    text: 'Investors - Latest Trend Analysis',
                     x: -20 //center
                 },
                 subtitle: {
-                    text: 'Year 2012-2013',
+                    text: 'Year 2011-2014',
                     x: -20
                 },
                 xAxis: {
@@ -34,7 +32,7 @@
                 yAxis: {
                   
                     title: {
-                        text: 'No of Investors'
+                        text: 'No of Investment rounds'
                     },
                     plotLines: [{
                        value: 0,
@@ -63,27 +61,7 @@
 				
 				]
 				//}
-            //}
-			/*else if (a == 2 )
-			{
-                series: [
-				{
-            /type: 'column',
-            name: 'Year2013',
-            data: [100, 200, 300, 400]
-        }
-				]
-				}
-				else 
-			{
-                series: [
-				{
-            //type: 'column',
-            name: 'All',
-            data: [1000, 2000, 3000, 4000]
-        }
-				]
-				}*/
+           
 				
 			}
 			
@@ -92,7 +70,8 @@
                 options.xAxis.categories = json[0]['data'];
                 options.series[0] = json[1];
                 options.series[1] = json[2];
-				//options.series[2] = json[5];
+				options.series[2] = json[3];
+				options.series[3] = json[4];
                // options.series[3] = json[7];*/
                 chart = new Highcharts.Chart(options);
            });
@@ -181,138 +160,16 @@
      <div class = "container-fluid" id = "content-area">
      <div class="panel panel-primary">
 
-		<div class="panel-heading" id="panel-heading">The chart depicts the latest trend analysis for a Series A investor</div>
-
+		<div class="panel-heading" id="panel-heading">Investor details by investment rounds</div>
+<div class="panel-body">
+    			<p><em><strong>This graph depicts the type of investors and number of investment rounds , year wise. </strong></em><p>
+				
+				   
+  			</div>
       <div id="column_graph">
         
       </div>
 
-    
-         <!--   <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>-->
          </div>
          </div>
          </div>
