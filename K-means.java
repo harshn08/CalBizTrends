@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class KMeans 
+public class KMeans
 {
-  // Data members
+ 
   private Gene[] genes; // Array of all genes in dataset
   private Cluster[] clusters; //Array of all clusters; null until
                               // performClustering is called.
