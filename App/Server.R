@@ -13,6 +13,7 @@ shinyServer(function(input,output){
     centers=as.numeric(input$value);
     results<-kmeans(newlist, centers);
     plot(newlist,col=results$cluster,xlab="person(number of observation)",ylab=input$Attribute)
+    print("The results");
     })
   
 });
