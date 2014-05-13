@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Home</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href = "css/bootstrap.min.css" rel = "stylesheet">
+                <link href = "css/styles.css" rel = "stylesheet">
+                <link href="css/dashboard.css" rel="stylesheet">
+         <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+                
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+               <script type="text/javascript">
+               $(document).ready(function() {
+           var options = {
+                chart: {
+                    renderTo: 'column_graph1',
+                  //  type: 'column',
+             /*        options3d: {
+                enabled: true,
+                alpha: 20,
+                beta: 20,
+                viewDistance: 125,
+                depth: 25
+            },*/
+            marginTop: 80,
+            marginRight: 40
+        },
+
+       title: {
+            text: 'Investor Category - Investment Trends'
+        },
+        xAxis: {
+            categories: ['2011-Q1','2011-Q2', '2011-Q3', '2011-Q4', '2012-Q1','2012-Q2','2012-Q3','2012-Q4','2013-Q1','2013-Q2','2013-Q3','2013-Q4','2014-Q1']
+        },
+        yAxis: {
+                  
+                    title:{
+                        text: 'Number of Investment rounds'
+                    }
+              },
+        labels: {
+            items: [{
+                html: '----------- Total Funding Rounds',
+                style: {
+                    left: '50px',
+                    top: '18px',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                }
+            }]
+        },
+        series: [{
+            type: 'column',
+            name: 'Angel',
+            data: [680, 537, 731, 689, 1050,873,946,911,1292,1085,1247,943,673]
+        }, {
+            type: 'column',
+            name: 'series-a',
+            data: [342,338,386,365,393,388,361,333,429,524,588,523,458]
+        }, {
+            type: 'column',
+            name: 'series-b',
+            data: [171,154,168,154,134,156,124,130,151,167,205,209,208]
+        }, {
+            type: 'column',
+            name: 'series-c+',
+            data: [157,149,134,113,151,156,145,125,147,138,174,168,177],
+          /*  marker: {
+              lineWidth: 2,
+              lineColor: Highcharts.getOptions().colors[3],
+              fillColor: 'white'
+            }*/
+        },
+          {
+            type: 'column',
+            name: 'venture',
+            data: [903,854,722,691,789,792,737,695,603,709,582,962,1211]
+        },
+         {
+            type: 'pie',
+            name: 'Total Investment',
+            data: [{
+                name: 'angel',
+                y:11657 ,
+                color: Highcharts.getOptions().colors[0] // Jane's color
+            }, {
+                name: 'series-a',
+                y: 5428,
+                color: Highcharts.getOptions().colors[1] // John's color
+            }, {
+                name: 'series-b',
+                y: 2133,
+                color: Highcharts.getOptions().colors[2] // Joe's color
+            },
+            {
+                name: 'series-c+',
+                y: 1934,
+                color: Highcharts.getOptions().colors[3] // Joe's color
+            },
+            {
+                name: 'venture',
+                y: 10250,
+                color: Highcharts.getOptions().colors[4] // Joe's color
+            }
+            ],
+            center: [60,20],
+            size: 100,
+            showInLegend: false,
+            dataLabels: {
+                enabled: false
+            }
+        },
+        {
+            type: 'spline',
+            name: 'Average',
+            data: [451,406,428,403,503,473,463,439,524,525,559,561,545],
+            marker: {
+              lineWidth: 2,
+              lineColor: Highcharts.getOptions().colors[3],
+              fillColor: 'white'
+            }
+        }
+        ]
+  }
+   /*   $.getJSON("investment1.php", function(json) {
+                options.xAxis.categories = json[0]['data'];
+                options.series[0] = json[1];
+               options.series[1] = json[2];
+                options.series[2] = json[3];
+                 options.series[3] = json[4];*/
+               // chart = new Highcharts.Chart(options);
+            
+      chart = new Highcharts.Chart(options);
+      });
+    
+
+
+
+
+    </script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-3d.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+        </head>
+        <body>
+ 
+                <div class = "navbar navbar-inverse navbar-fixed-top">
+                        <div class = "container-fluid">
+                        
+                               
+                                <a href = "#" class = "navbar-brand">California Business Trends</a>
+                               
+                                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                        <span class = "icon-bar"></span>
+                                </button>
+                               
+                                <div class = "collapse navbar-collapse navHeaderCollapse">
+                               
+                                        <ul class = "nav navbar-nav navbar-right">
+                                       
+                                                <li><a href = "#">Home</a></li>
+                                                <li class = "dropdown">
+                                                       
+                                                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Social Media <b class = "caret"></b></a>
+                                                        <ul class = "dropdown-menu">
+                                                                <li><a href = "https://twitter.com/calbiztrends">Twitter</a></li>
+                                                                <li><a href = "https://www.facebook.com/cabusinesstrends">Facebook</a></li>
+                                                        </ul>
+                                               
+                                                </li>
+                                                <li><a href = "#">About</a></li>
+                                                <li><a href = "#">Contact</a></li>
+
+                                       
+                                        </ul>
+                               
+                                </div>
+                               
+                        </div>
+                </div>
+        
+         
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+        
+          <ul class="nav nav-sidebar">          
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="investor_trend.html">Investor Trends</a></li>
+            <li><a href="number_companies.html">Companies vs Categories</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+          	 <li><a href="top_acquisition.html">Top Acquisitions</a></li>
+            <li><a href="top_acquirer.html">Top Acquirers</a></li>
+            <li><a href="acquisition.html"> Acquisitions vs Acquirers </a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+          	 <li><a href="state.html">Statewise Company Data</a></li>
+            <li><a href="region_wise.html">Regionwise Company Data</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+          	 <li><a href="investment.html">Top Investments vs </br>Top Categories</a></li>
+            <li class="active"><a href="investor_Ex.html">Rounds of Investments</a></li>
+          </ul>
+          
+          <ul class="nav nav-sidebar">
+            <li><a href="top_funded_companies.html">Top Funded Company</a></li>
+          	 <li><a href="funding.html">Funding vs Category</a></li>
+            <li><a href="global_stat1.html">Recent Funding Trends</a></li>
+          </ul>
+          
+      </div>
+     
+     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+     <div class = "container-fluid" id = "content-area">
+     <div class="panel panel-primary">
+
+    <div class="panel-heading" id="panel-heading"><h4 align="center"> Rounds of Investment </h4></div>
+    <div class="panel-body">
+    			<em><strong>This chart is a combination chart which depicts the rounds of investment for each quarter and shows the occurences and frquency of each round when compared with each other.</strong></em>
+  			</div>
+
+      <div id="column_graph1">
+        
+      </div>
+
+    
+        
+         </div>
+         </div>
+         </div>
+     </div>
+                <div class = "navbar navbar-default navbar-fixed-bottom">
+               
+                        <div class = "container">
+                            <a href = "https://www.facebook.com/cabusinesstrends" class = "navbar-btn btn-primary btn pull-right">Like us on Facebook</a>
+                               
+                                
+                        </div>
+               
+                </div>
+ 
+                <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script src = "js/bootstrap.js"></script>
+               
+        </body>
+</html>
