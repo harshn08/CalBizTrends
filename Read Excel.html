@@ -1,0 +1,71 @@
+
+<html>
+<script>
+function mytest1() {
+	var Excel, Book;	// Declare the variables
+	Excel = new ActiveXObject("Excel.Application");	// Create the Excel application object.
+	Excel.Visible = false;	// Make Excel invisible.
+	Book = Excel.Workbooks.Add()	// Create a new work book.
+	Book.ActiveSheet.Cells(1,1).Value = document.all.my_textarea1.value;
+	Book.SaveAs("C:/Documents and Settings/ProGamer/Desktop/word to text/TEST.xls");		
+	Excel.Quit();	// Close Excel with the Quit method on the Application object.
+}
+
+function mytest2() {
+	var Excel;
+	Excel = new ActiveXObject("Excel.Application");	
+	Excel.Visible = false;
+	
+	var book = Excel.Workbooks.Open("C:\Users\Sid\Desktop\New folder\sid");
+	
+	var ExcelSheet= book.Sheets;
+    var sheetCount  = ExcelSheet.Count;
+	var sheetArray = new Array(sheetCount);
+	var data = "";
+	//alert(sheetCount);
+	
+	for(var i=0;i<sheetCount;i++){
+        alert("Read sheets from file :"+ExcelSheet.Item(i+1).Name);
+        var excel_sheet = Excel.Worksheets(ExcelSheet.Item(i+1).Name);
+		
+		
+		
+		var cCount = excel_sheet.UsedRange.Columns.Count;
+		var rCount = excel_sheet.UsedRange.Rows.Count;
+		//alert(cCount);
+		//alert(rCount);
+		
+		sheetArray[i] = new Array(cCount);
+		
+		for(var j = 0; j < rCount; j++)
+		{
+			sheetArray[i][j] = new Array(rCount);
+			
+			for(var k=0; k< cCount; k++)
+			{
+				sheetArray[i][j][k] = excel_sheet.Cells(j+1,k+1).Value;
+				//alert(i);
+				alert(sheetArray[i][j][k]);
+			}
+		}
+    }
+	
+	
+	
+
+   	
+	
+	Excel.Quit();
+}
+
+</script>
+
+<body>
+<form name="form1">
+	<input type=button onClick="mytest1();" value="Send Excel Data"><input type=text name="my_textarea1" size=70 value="enter ur data here">
+	<br><br>
+	<input type=button onClick="mytest2();" value="Get Excel Data"><input type=textarea name="my_textarea2"  value="no data collected yet">
+
+</form>
+</body>
+</html>
